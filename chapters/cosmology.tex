@@ -1,0 +1,283 @@
+%---------------------------------------------------------------------------------------------------
+\chapter{Cosmological Setting}
+\label{chap:cosmology}
+%---------------------------------------------------------------------------------------------------
+
+In this chapter, we detail the assumptions made regarding the universe at cosmological scales, which we then use to develop the relevant topics of both the standard model of cosmology, \gls{LCDM}, and a cosmological model based on $f(Q)$ gravity, keeping the function $f(Q)$ to be completely generic. Unless otherwise stated, the contents in this chapter will be based on \cite{Baumann} and \cite{Dodelson}.
+
+
+%---------------------------------------------------------------------------------------------------
+\section{The Metric at Large Scales}
+\label{sec:metric}
+%---------------------------------------------------------------------------------------------------
+
+One of the most fundamental pieces of our knowledge regarding the universe at the large scales, is the assumption that it is homogeneous, i.e. no point in space is privileged when compared to other, and isotropic, i.e. from a given point in space the Universe looks the same regardless of the direction we are looking at. This assumption is known as the cosmological principle, a well observationally motivated assumption of the distribution of matter in the universe at cosmological scales.
+Under these assumptions, the most general line element is given by
+
+\begin{equation}
+    ds^2 = -c^2 dt^2 + a^2(t) \left( \frac{dr^2}{1-kr^2} + r^2 (d\theta^2 + \sin^2{\theta} d\phi^2) \right) \,,
+\end{equation}
+which is know as the \gls{FLRW} metric, where $a(t)$ is the scale factor, which is a function of the cosmic time $t$, and $k \in (-1, 0, 1)$ is the spatial the curvature of the universe.
+
+One can simplify this metric even further considering a flat universe, something which is supported by the Planck collaboration in \cite{Planck2018}. The line element then reduces to
+\begin{equation}
+    \label{eq:FLRW}
+    ds^2 = -c^2 dt^2 + a^2(t) (dx^2 + dy^2 + dz^2)  \,.
+\end{equation}
+
+The scale factor, which describes an expanding or contracting universe, might cause the frequency of photons emitted in the past, $\nu_e$, to be different to the frequency that we measure today, $\nu_0$. For a photon emitted in the past at time $t_e$, and is measured today at time $t_0$, its frequency changes such that
+
+\begin{equation}
+    \label{eq:nu-a}
+    \frac{\nu_e}{\nu_0} = \frac{a_0}{a_e} \,,
+\end{equation}
+
+A useful quantity to state by how much has the universe grown is the redshift, that tells us how much the frequency for a given photon as decreased, and is defined as
+
+\begin{equation}
+    1 + z \equiv \frac{\nu_e}{\nu_0} \,,
+\end{equation}
+which when considered together with the result obtained in \cref{eq:nu-a}, reveals that
+
+\begin{equation}
+    1 + z = \frac{a_0}{a_e} \,.
+\end{equation}
+
+As convection dictates, we consider the scale factor today to be $a_0 = 1$. This can be done without loss of generality, since we can always redefine the spatial coordinates.
+
+
+%---------------------------------------------------------------------------------------------------
+\section{Cosmological Fluid}
+\label{sec:cosmological-fluid}
+%---------------------------------------------------------------------------------------------------
+
+One can show that the requirements set by the cosmological principle, regarding homogeneity and isotropy, can be satisfied by a fluid with no shear stress, nor viscosity, meaning that it is fully characterized by its energy density and pressure. The energy-momentum tensor of a perfect fluid is
+
+\begin{equation}
+    \mathcal{T}_{\mu \nu} = (\rho c^2 + P) u_\mu u_\nu + P g_{\mu \nu} \,,
+\end{equation}
+where $\rho$ and $P$ are the total fluid energy density and pressure respectively, while $u_\mu$ is the fluid four-velocity relative to the observer. For a comoving observer the four-velocity is given by $u^\mu = (-1, 0, 0, 0)$, which simplifies the energy-momentum tensor to be strictly diagonal, reducing to
+
+\begin{equation}
+    \label{eq:perfect-fluid}
+    \mathcal{T}^\mu{}_\nu = - (\rho c^2 + P) \delta^\mu_0 \delta^0_\nu + P \delta^\mu_\nu \,.
+\end{equation}
+
+\noindent In this dissertation, we consider the existence of three different components in the perfect fluid:
+
+\begin{itemize}
+    \item Radiation: This includes contributions from all relativistic species where the pressure can be related to the energy density by $P = \rho c^2 / 3$;
+    \item Matter: All the contents in the universe which exhibit a negligible pressure, $P \approx 0$;
+    \item Dark Energy: An exotic component which has a constant energy density value throughout the history of the universe and that exhibits negative pressure of the form $P = - \rho c^2$.
+\end{itemize}
+We can now parametrize each component of the perfect fluid with an \gls{EoS} of the form
+
+\begin{equation}
+    \label{eq:EoS}
+    w \equiv \frac{P}{\rho c^2} \,,
+\end{equation}
+which after computing the value of $w$ reveals that
+
+\begin{equation}
+    \label{eq:EoS-components}
+    w = \left\{
+    \begin{array}{ll}
+        1/3, & \text{radiation}    \\
+        0,   & \text{matter}       \\
+        -1,  & \text{dark energy}  \\
+    \end{array}
+    \right.
+\end{equation}
+which we will use further ahead to compute the evolution of the energy density for each component of the perfect fluid.
+
+
+%---------------------------------------------------------------------------------------------------
+\section{The Standard Cosmological Model}
+\label{sec:LCDM}
+%---------------------------------------------------------------------------------------------------
+
+The standard model of cosmology, from now on referred to as \gls{LCDM}, is the dominant paradigm in modern cosmology, being able to successfully account for most of the features of the universe observed at cosmological scales. Its main features are \cite{LCDM-R2021}
+
+\begin{enumerate}
+    \item The universe consists of matter, radiation and dark energy;
+    \item \gls{GR} is the theory to describe gravity at the cosmological scales;
+    \item The cosmological principle is regarded as true;
+    \item The universe is considered to be spatially flat;
+    \item There is a period of initial inflation in the primordial universe;
+    \item There are 6 independent parameters: The baryon ($\Omega_b$) and cold dark matter ($\Omega_c$) densities, the optical depth at reionization $\tau$, the amplitude $A_s$ and tilt $n_s$ of the primordial scale fluctuations and the Hubble constant $h$.
+\end{enumerate}
+In the previous paragraph, as well as throughout the rest of this work, $h$ refers to the dimensionless Hubble constant, defined such that $H_0 = 100h \, \text{km} \, \text{s}^{-1} \text{Mpc}^{-1}$.
+
+By applying the \gls{FLRW} metric, presented in \cref{eq:FLRW}, the energy-momentum tensor of the perfect fluid, given in \cref{eq:perfect-fluid}, and inserting both in the \gls{EFE}, presented in \cref{eq:EFE}, one is able to derive what are known as the Friedmann equations. The time-time component of the result arising from this computation reveals what is referred to as the first Friedmann equation, which is given by
+
+\begin{equation}
+    \label{eq:friedmann-1}
+    H^2 = \frac{8 \pi G}{3} \rho \,,
+\end{equation}
+while the second Friedmann equation, also known as the Raychaudhuri equation or acceleration equation, is obtained from the spatial components of the previous computation, given by
+
+\begin{equation}
+    \label{eq:friedmann-2}
+    \frac{\ddot{a}}{a} = - \frac{4 \pi G}{3} \left(\rho + 3\frac{P}{c^2}\right) \,.
+\end{equation}
+
+From the covariant derivative of the energy-momentum tensor, we obtain what is known as the continuity equation
+
+\begin{equation}
+    \label{eq:continuity}
+    \dot{\rho} + 3 \frac{\dot{a}}{a} \left(\rho + \frac{P}{c^2} \right) = 0 \,,
+\end{equation}
+where the overdot indicates a derivative with respect to the cosmic time.
+
+By the means of the continuity equation, we are able to compute the evolution of each of the components of the cosmological fluid, with respect to the scale factor. This is done by taking the
+\gls{EoS}, $P = w \rho$, and inserting it in the continuity equation, reducing to
+
+\begin{equation}
+    \frac{\dot{\rho}}{\rho} = -3 \frac{\dot{a}}{a}(1 + w) \,.
+\end{equation}
+By assuming that the value of $w$ is a constant, which is true for all components of the perfect fluid, we can integrate the previous equation and show that for the $i$-th component the evolution of the energy density is given by
+
+\begin{equation}
+    \rho_i = \rho_{i,0} \, a^{-3(1+w)} \,,
+\end{equation}
+where the index $0$ is once again used to refer to the value of that quantity at the present time.
+
+Using the previous result, and the value of $w$ previously computed in \cref{eq:EoS-components}, we can show that the density evolution for radiation, which from now on we will denote with an index $\gamma$, is
+
+\begin{equation}
+    \rho_\gamma = \rho_{\gamma, 0} \, a^{-4} \,.
+\end{equation}
+Similarly, the density evolution for matter, denoted by the index $m$, is
+
+\begin{equation}
+    \rho_m = \rho_{m,0} \, a^{-3} \,,
+\end{equation}
+and finally, the density evolution of dark energy, denoted using the index $\Lambda$, is
+
+\begin{equation}
+    \rho_\Lambda = \rho_{\Lambda,0} \,.
+\end{equation}
+
+We now define the relative abundance of the $i$ component of the cosmological fluid for the present day, which will be used from now on instead of the individual energy densities, represented by $\Omega_i$, as
+
+\begin{equation}
+    \label{eq:densities}
+    \Omega_i \equiv \frac{8 \pi G}{3H_0^2} \rho_{i,0} \,,
+\end{equation}
+where $H \equiv \dot{a}/a$ is the Hubble function and $H_0 \equiv H(a = a_0 = 1)$ is the Hubble constant.
+
+
+%---------------------------------------------------------------------------------------------------
+\section{Cosmology in $f(Q)$}
+%---------------------------------------------------------------------------------------------------
+
+In this section we will drop $\Lambda$CDM second postulate and instead of working with \gls{GR} we will consider instead an arbitrary $f(Q)$ modified gravity cosmological model.
+
+Computing the non-metricity scalar, presented in \cref{eq:Q}, for the metric in \cref{eq:FLRW}, we have  that \cite{Jimenez2019}
+
+\begin{equation}
+    \label{eq:Q=6H2}
+    Q = 6H^2 \,.
+\end{equation}
+
+Similarly to what was done before, we now insert the \gls{FLRW} metric and the energy-momentum tensor of the perfect fluid in the modified field equations for $f(Q)$, presented in \cref{eq:f(Q)-field-equations}. We obtain a modified version of the first Friedmann equation, which reads \cite{Jimenez2017}
+
+\begin{equation}
+    \label{eq:STG-friedmann-1}
+    6 f_Q H^2 - \frac{1}{2}f = 8 \pi G \rho \,,
+\end{equation}
+and the modified second Friedmann equation is
+
+\begin{equation}
+    \label{eq:STG-friedmann-2}
+    (12H^2 f_{QQ} + f_Q) \dot{H} = - 4 \pi G \left(\rho + \frac{P}{c^2} \right) \,,
+\end{equation}
+where the index $Q$ denotes a partial derivative with respect to $Q$.
+
+To understand the dynamics of a universe in $f(Q)$ gravity, we must also understand how each of our cosmological fluid behaves. Given that for $f(Q)$ gravity the covariant derivative of the energy-momentum tensor is still valid, regardless of the form that the function might take, then it immediately follows that the continuity equation
+
+\begin{equation}
+    \label{eq:STG-continuity}
+    \dot{\rho} + 3 \frac{\dot{a}}{a} \left(\rho + \frac{P}{c^2} \right) = 0 \,,
+\end{equation}
+still holds true. As such, this implies that the cosmological fluids behave precisely in the same way as in \gls{LCDM}.
+
+
+%---------------------------------------------------------------------------------------------------
+\section{Propagation of Gravitational Waves}
+%---------------------------------------------------------------------------------------------------
+
+One of the most remarkable predictions of \gls{GR}, which is extended to the other geometrical theories of gravity, is the existence of \glspl{GW}. These waves are tensorial perturbations on top of the background of spacetime which propagate outwards from their source, interacting with the energy-matter content of the universe along the way. At present time the main source of \gls{GW} events is the merger of binary systems of compact bodies, which are known to be unstable due to the gradual emission of \glspl{GW}. Although their existence should be verified across different theories of gravity, given that there is more than enough empirical evidence supporting their existence, the way that they propagate through spacetime might not necessarily be the same between the different theories. Given that we are interested in using \gls{SS} events as a probe to understand the evolution of the cosmos, here we will see just how much does \gls{LCDM} and $f(Q)$ based cosmology differ in the propagation of \glspl{GW}.
+
+For the scope of this dissertation, we are interested in knowing how does a \gls{GW} emitted from a \gls{SS} event reach the Earth. Knowing that the events we expect to observe, the merger of compact binary systems, are located very far away, then we can safely work under the assumptions that \glspl{GW} are small tensorial perturbations on top of an otherwise locally flat Minkowski spacetime. Under these assumptions we can decompose the metric tensor as \cite{Maggiore2007}
+
+\begin{equation}
+    g_{\mu \nu} = \eta_{\mu \nu} + h_{\mu \nu} \,,
+\end{equation}
+where $\eta_{\mu \nu}$ is the Minkowski metric and $h_{\mu \nu}$ is a small perturbation such that $| h_{\mu \nu}| \ll 1$.
+
+From the linearized \gls{EFE} it is possible to see that, under the proper gauge, a solution for $h_{\mu \nu}$ can take the shape of a plane wave. Without loss of generality we take our wave to propagate along the $z$ axis and the solution for $h_{\mu \nu}$ tensor takes the form
+
+\begin{equation}
+    h_{\mu \nu} =
+    \begin{bmatrix}
+        0 & 0        & 0        & 0 \\
+        0 & h_+      & h_\times & 0 \\
+        0 & h_\times & -h_+     & 0 \\
+        0 & 0        & 0        & 0
+    \end{bmatrix}
+    \cos{\left( k c (t - z/c) + \phi_0 \right)} \,,
+\end{equation}
+where $k$ is the modulus of the wave vector of the \gls{GW} and $\phi_0$ is an arbitrary phase.
+
+The reason why the two degrees of freedom for this metric are labeled as $h_+$ and $h_\times$, often referred to as polarizations, is due to the way they compress and expand a circle of point-like test particles. The $h_+$ polarization modifies the circle in what resembles a plus sign, with one direction compressing and the other expanding, whereas $h_\times$ does the same but in a cross like manner.
+
+The propagation of tensorial perturbations in a cosmological background for a \gls{LCDM} universe is given by \cite{Maggiore2018}
+
+\begin{equation}
+    \label{eq:tensor-perturbations-LCDM}
+    \Bar{h}_A'' + 2 \mathcal{H} \Bar{h}_A' + k^2 \Bar{h}_A = 0 \,,
+\end{equation}
+where $\Bar{h}_A$ are the Fourier modes of the \gls{GW} amplitude, $A = +, \times$ represent the polarization, the prime denotes a derivative with respect to conformal time $\eta$, which is defined as $d\eta = dt/a$, and $\mathcal{H} = a'/a$.
+
+Just like \gls{EM} radiation is redshifted when propagating throughout the universe, as a consequence of the expansion, gravitational radiation, i.e. \gls{GW}, suffers the same effect. This means that it looses energy as it travels in an expanding universe and, similarly to the \gls{EM} radiation, it suffers from a redshift effect. The luminosity distance for a \gls{GW} under this condition is similar to the luminosity distance of an \gls{EM} event, which reads
+
+\begin{equation}
+    \label{eq:dL-EM}
+    d_L(z) = (1+z) c \int_0^z \frac{1}{H(z)} dz \,.
+\end{equation}
+
+However, \cref{eq:tensor-perturbations-LCDM} does not hold when we replace \gls{GR} by a model of $f(Q)$ gravity. Under the same assumptions that we have used to obtain the previous equation, but replacing \gls{GR} by an arbitrary $f(Q)$ theory of gravity, the propagation of the tensorial perturbations is \cite{Jimenez2019}
+
+\begin{equation}
+    \Bar{h}_A'' + 2 \mathcal{H} (1 + \delta(z)) \Bar{h}_A' + k^2 \Bar{h}_A = 0 \,,
+\end{equation}
+which differs from the case of \gls{LCDM} by a friction term, $\delta(z)$, that for an $f(Q)$ cosmological model takes the form
+
+\begin{equation}
+    \delta(z) = \frac{d \ln{f_Q}}{2 \mathcal{H} d\eta} \,.
+\end{equation}
+
+Following \cite{Belgacem2017a}, in order to eliminate the friction term and obtain an expression that is formally equivalent to \cref{eq:tensor-perturbations-LCDM}, we introduce a modified scale factor $\tilde{a}$ that obeys the equation
+
+\begin{equation}
+    \frac{\tilde{a}'}{a} = \mathcal{H}(1 + \delta(z)) \,.
+\end{equation}
+By integrating both sides we obtain that the ratio between the modified and the usual scale factor is
+
+\begin{equation}
+    \frac{\tilde{a}}{a} = \exp \left( \int_0^z \frac{\delta (z)}{1 + z} dz \right) \,.
+\end{equation}
+
+Given that in an \gls{FLRW} metric the value of $h_A$ is inversely proportional to the scale factor, and we obtain an expression that is formally equivalent in $f(Q)$ cosmology only with a modified scale factor, this leads to a modification to the luminosity distance of the \gls{GW} that takes the form
+
+\begin{equation}
+    d_L^\text{(GW)}(z) = \exp{ \left( \int_0^z \frac{\delta(z)}{1+z} dz \right) } d_L(z) \,,
+\end{equation}
+where $d_L(z)$ is the same \gls{EM} luminosity distance we saw in \cref{eq:dL-EM}. Inserting the value of $\delta$ for an $f(Q)$ cosmological model, we can now write
+
+\begin{equation}
+    \label{eq:STG-generic-dLGW}
+    d_L^\text{(GW)} (z) = \sqrt{\frac{f_Q^{(0)}}{f_Q}} \,\, d_L(z) \,,
+\end{equation}
+where $f_Q^{(0)}$ is the function $f_Q$ computed at the present day.

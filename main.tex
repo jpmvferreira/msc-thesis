@@ -1,0 +1,225 @@
+%---------------------------------------------------------------------------------------------------
+% Info
+%---------------------------------------------------------------------------------------------------
+% - !TEX program = xelatex
+% - !BIB program = biber
+
+
+%---------------------------------------------------------------------------------------------------
+% Preamble
+%---------------------------------------------------------------------------------------------------
+\documentclass[11pt,openright,twoside]{report}
+\usepackage[english,portuguese]{babel}
+\selectlanguage{english}
+
+
+%---------------------------------------------------------------------------------------------------
+% Set Cover Information
+%---------------------------------------------------------------------------------------------------
+\newcommand{\departmentname}{FÍSICA}
+\newcommand{\thesisname}{Constraining f(Q) Cosmology with Standard Sirens}
+\newcommand{\studentname}{José Pedro Mota Valente Ferreira}
+\newcommand{\coursename}{Física}
+\newcommand{\specname}{Especialização em Astrofísica e Cosmologia}
+\newcommand{\versaoprovisoria}{} % Blank for final version
+\newcommand{\thesistype}{Dissertação}
+\newcommand{\firstadvisor}{Prof. Doutor Nelson Nunes}
+\newcommand{\secondadvisor}{Prof. Doutor Tiago Barreiro}
+
+
+%---------------------------------------------------------------------------------------------------
+% Packages and Definitions
+%---------------------------------------------------------------------------------------------------
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{makeidx}
+\usepackage{datetime2}
+
+% Packages for the cover
+\usepackage{fontspec}
+\newfontfamily{\coverfont}{arial-narrow}
+    [Path = ./assets/, 
+    Extension = .ttf, 
+    UprightFont = *-regular,
+    BoldFont = *-bold
+    ]
+\usepackage{anyfontsize}
+\usepackage{afterpage}
+\usepackage{changepage}
+
+% Positioning
+\usepackage{float}
+
+% Page format
+\usepackage[dvips]{geometry}
+\geometry{
+    a4paper=true,
+    portrait=true,
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+% Bibliography: import and configure BibLaTeX
+\usepackage[
+    backend=biber,  % More modern backend when compared to bibtex
+    sorting=none,   % All entries are processed in citation order
+    style=numeric,  % Citation style
+    maxbibnames=4,  % Maximum number of authors before truncating
+    maxcitenames=1  % Number of authors to show before the "et al."
+]{biblatex}
+\addbibresource{bibliography.bib}  % Bibliography .bib file
+
+% Math
+\usepackage{amsmath}
+\usepackage{amssymb} 
+\usepackage{amsthm}
+
+% Images
+\usepackage{color}
+\usepackage[table,xcdraw,dvipsnames]{xcolor}
+
+% Code listings
+\usepackage{caption} 
+\usepackage{listings}
+
+% Text and pdf
+\usepackage{pdfpages}
+\usepackage{xspace}
+\usepackage[shortlabels]{enumitem}
+
+% Links
+\usepackage{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{cleveref}
+
+% Configure hyperref
+\hypersetup{
+    colorlinks=true,    % color links
+	linkcolor=blue,     % color of internal links
+	citecolor=green,    % color of links to bibliography
+	filecolor=magenta,  % color of file links
+	urlcolor=cyan,      % color to urls      
+    pdfauthor={\studentname},                                       
+    pdftitle={\thesisname},                                         
+    pdfsubject={\thesistype in \coursename},                        
+    pdfkeywords={Multi-messeger Astronomy, Modified Gravity, Observational Cosmology, Standard Sirens, Gravitational Waves}
+}
+
+% Fancy fonts for 'Agradecimentos'
+\usepackage{calligra}
+\usepackage{miama}
+\usepackage[T1]{fontenc}
+
+% Glossary
+\usepackage[automake,toc]{glossaries-extra}
+\input{front-matter/glossary}
+\glsdisablehyper  % disable hyperlinks to glossary
+
+% Clean page command
+\newcommand{\cleanpage}{\newpage\mbox{}\thispagestyle{empty}\newpage}
+
+% Change page counter type
+\newcommand{\startpagecounter}[1]{\setcounter{page}{1}\pagenumbering{#1}}
+
+% Overtext
+\usepackage{accents}
+\newcommand{\overtext}[2]{\accentset{\text{\raisebox{1pt}{\scalebox{0.9}{#1}}}}{#2}}
+
+% Fancy tables
+\usepackage{multirow}
+
+
+%---------------------------------------------------------------------------------------------------
+% Begin of Document
+%---------------------------------------------------------------------------------------------------
+\makeindex
+
+\begin{document}
+
+\startpagecounter{roman}
+
+
+%---------------------------------------------------------------------------------------------------
+% Front Matter
+%---------------------------------------------------------------------------------------------------
+% Cover
+\input{front-matter/cover}
+\cleardoublepage
+
+% Dedicatória
+\input{front-matter/dedicatoria}
+\cleardoublepage
+
+% Agradecimentos
+\phantomsection
+\addcontentsline{toc}{chapter}{Agradecimentos}
+\input{front-matter/agradecimentos}
+\cleardoublepage 
+
+% Resumo
+\phantomsection
+\addcontentsline{toc}{chapter}{Resumo}
+\input{front-matter/resumo}
+\glsresetall  % reset all acronyms to have first occurrences again
+\cleardoublepage
+
+% Abstract
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}
+\input{front-matter/abstract}
+\glsresetall  % reset all acronyms to have first occurrences again
+\cleardoublepage
+
+\pagestyle{plain}
+
+% Table of Contents
+\tableofcontents
+
+% List of tables
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+% List of figures
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+% other listings (N/A for this thesis)
+%\lstlistoflistings                      
+%\addcontentsline{toc}{chapter}{Listings}
+
+% Print glossary
+\printglossary[type=acronyms]      % Acronyms (showing occurrences)
+%\printunsrtglossary[type=symbols]  % Symbols (not showing occurrences)
+
+
+%---------------------------------------------------------------------------------------------------
+% Main text
+%---------------------------------------------------------------------------------------------------
+\cleardoublepage
+\startpagecounter{arabic}
+
+% Chapters
+\input{chapters/introduction}
+\glsresetall  % reset all acronyms to have first occurrences again
+\input{chapters/gravity}
+\input{chapters/cosmology}
+\input{chapters/datasets}
+\input{chapters/stg-lcdm-bg}
+\input{chapters/stg-dark-energy}
+\input{chapters/final-remarks}
+
+%---------------------------------------------------------------------------------------------------
+% Bibliography and Appendices
+%---------------------------------------------------------------------------------------------------
+% Print bibliography and show entry in TOC
+\printbibliography[heading=bibintoc]
+
+% Appendices
+%\appendix
+%\input{}
+
+\end{document}
