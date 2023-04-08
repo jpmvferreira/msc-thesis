@@ -9,7 +9,7 @@ The second model attempts to replace dark energy by making use of a specific for
 
 ---
 
-The compiled version of this document is available in the file [main.pdf](./main.pdf).
+A compiled version of this document is available in the file [main.pdf](./main.pdf) or alternatively in the following arXiv URL: [https://arxiv.org/abs/2303.12674](https://arxiv.org/abs/2303.12674).
 
 This document was compiled in Overleaf relying on the XeLaTeX compiler, using the 2022 TeX Live version.
 
